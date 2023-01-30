@@ -1,0 +1,34 @@
+<body>
+    <div style="padding-left: 10%; padding-top: 2.5%; background-color: rgb(133, 133, 248);">
+        <h2 style="float: left; padding-right:100px ; background-color: rgb(133, 133, 248);">
+          <!-- <img src="../assets/images.jpg" alt="LaptopImage">  -->
+            demo app
+        </h2> 
+            <mat-tab-group style=" background-color: rgb(133, 133, 248);">
+                <mat-tab label="Home">
+                </mat-tab>
+                <mat-tab label="About Us">
+                </mat-tab>
+                <mat-tab label="Jobs">
+                </mat-tab>
+                <mat-tab label="Clients">
+                </mat-tab>
+                <mat-tab label="Employees">
+                </mat-tab>
+                <mat-tab label="Contact Us">
+                </mat-tab>
+            </mat-tab-group>
+    </div>       
+    <br>
+    <div style="padding-left: 50%;">
+        <p>
+            I'm {{name}} and I'm above 18 years and you can send your emails to {{email}}. I live in the state of {{state}}.<br>I like to {{ hobbiesArray }}. Please reach out to me on my Phone Number: {{phnNumber}}. <span *ngIf="subscribed">And please send the NewsLetter</span>
+        </p>
+        <br><br>
+        <button mat-raised-button style="background-color: green" (click)="openDialogBox()">Edit Profile</button>
+        &nbsp; &nbsp;
+        <button mat-raised-button style="background-color: green" (click)="agree()">I Agree</button>
+        &nbsp; &nbsp;
+        <button mat-raised-button style="background-color: green" (click)="refreshPage()">Please Refresh once you edit the data.</button>
+    </div>
+</body>

@@ -1,0 +1,110 @@
+
+    <div style="background-color: rgb(86, 183, 240); padding: 0;">
+        <h1 mat-dialog-title>Register</h1>
+    </div>
+    <div style="float: left;">
+        <img [src]='url' alt="Upload Your Photo" style="width: 2cm; height: 2cm;">
+        <br>
+        <span>
+            <input type="file" id="img" style="display: none;" accept="image/*" (change)="onSelect($event)">
+            <label for="img" style="color: blue; width: 1ch;">Upload Photo</label>
+        </span>
+    </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div style="float: right;" >    
+        <div mat-dialog-content>
+            <form  [formGroup]="registerForm">
+                <input type="text" placeholder="First Name" style="height: 0.7cm;" name="firstName" formControlName="user">
+                &nbsp;&nbsp;
+                <input type="text" placeholder="Last Name" style="height: 0.7cm;" name="lastName" formControlName="userLastName">
+                <br>
+                <span *ngIf="userDetail && userDetail.invalid && (userDetail.touched || userDetail?.dirty)" style="color: red;">
+                    Please Enter First Name and maximum 20 characters.
+                </span>
+                <br>
+                <span *ngIf="userLastName && userLastName.invalid && (userLastName.touched || userLastName?.dirty)" style="color: red;">
+                    Last Name can't be blank.
+                </span>
+                <br *ngIf="userLastName && userLastName.invalid && (userLastName.touched || userLastName?.dirty)">
+                <input type="email" placeholder="Email" style="width: 3.77in;height: 0.7cm;" name="email" formControlName="email">
+                <br>
+                <span *ngIf="userEmail && userEmail.invalid && (userEmail.touched || userEmail?.dirty)" style="color: red;">
+                    Invalid Email.
+                </span>
+                <br>
+                <input type="text" placeholder="Phone Number 1234567893" style="width: 3.77in; height: 0.7cm;" name="phnNumber" formControlName="phnNumber" max="10">
+                <br>
+                <span *ngIf="userPhnNumber && userPhnNumber.invalid && (userPhnNumber?.touched || userPhnNumber?.dirty)" style="color: red;">
+                    Phone Number is required should consist 10 numbers.
+                </span>
+                <br>
+                <span style="color: black;">
+                    Age
+                    {{ageValue}}
+                    <span>
+                        <mat-slider min="18" max="60" step="1" thumbLabel [(ngModel)]="ageValue" style="width: 6cm;" [ngModelOptions]="{standalone: true}">
+                            <input matSliderThumb>
+                        </mat-slider>
+                    </span>
+                </span>
+            </form>
+            <br>
+                <select  name="searchCountry" id="country" style="height: 0.86cm; width: 3.85in;" [(ngModel)]=countryValue required>
+                    <option value=""> Country</option>
+                    <option *ngFor="let country of countryName" value={{country.value}}> {{country.name}} </option>
+                </select>
+                <br>
+                <br>
+                <select  name="searchState" id="state" style="height: 0.86cm; width: 3.85in;" [(ngModel)]="stateValue" required>
+                    <option value="">State</option>
+                    <ng-container *ngFor="let countryName of stateName"> 
+                        <ng-container *ngIf="countryValue =='IN'">
+                            <option *ngFor="let state of countryName.India.stateName" value={{state.value}}> {{state.name}} </option>
+                        </ng-container>
+                        <ng-container *ngIf="countryValue =='AME'">
+                            <option *ngFor="let state of countryName.America.stateName" value={{state.value}}> {{state.name}} </option>
+                        </ng-container>
+                    </ng-container>
+                </select>
+                <br>
+                <br>
+                <select name="addressDropDown" id="address" style="height: 0.86cm; width: 3.85in;" [(ngModel)]="addressValue">
+                    <option value=""> Address </option>
+                    <option value="homeAddress"> Home </option>
+                    <option value="companyAddress"> Company </option>
+                </select>
+                    <br>
+                    <br>
+                    <input *ngIf="addressValue == 'homeAddress'" type="text" placeholder="Home Address 1" style="width: 3.77in; height: 0.7cm;" [(ngModel)]="homeAddressValue1">
+                    <br *ngIf="addressValue == 'homeAddress'">
+                    <br *ngIf="addressValue == 'homeAddress'">
+                    <input *ngIf="addressValue == 'homeAddress'" type="text" placeholder="Home Address 2" style="width: 3.77in; height: 0.7cm;" [(ngModel)]="homeAddressValue2">
+                    <br *ngIf="addressValue == 'homeAddress'">
+                    <br *ngIf="addressValue == 'homeAddress'">
+                    <input *ngIf="addressValue == 'companyAddress'" type="text" placeholder="Company Address 1" style="width: 3.77in; height: 0.7cm;" [(ngModel)]="companyAddressValue1">
+                    <br *ngIf="addressValue == 'companyAddress'">
+                    <br *ngIf="addressValue == 'companyAddress'">
+                    <input *ngIf="addressValue == 'companyAddress'" type="text" placeholder="Company Address 2" style="width: 3.77in; height: 0.7cm;" [(ngModel)]="companyAddressValue2">
+                <br *ngIf="addressValue == 'companyAddress'">
+                <br *ngIf="addressValue == 'companyAddress'">
+                <span style="color: #000;">
+                    Press Enter after writing every hobby
+                </span>
+                <br>
+                <input type="text" placeholder="Hobbies" name="tags" style="width: 3.77in; height: 0.7cm;" [(ngModel)]="hobbiesInput" (keydown.enter)="hello()" name="hobbies">    
+                <br>
+                <br *ngIf="hobbiesArray!=[]">
+                <mat-chip-list aria-label="Fish selection">
+                    <mat-chip *ngFor="let hobby of hobbiesArray" (remove)="removeHobby(hobby)">{{hobby}} &nbsp; &nbsp; <button matChipRemove (click)="removeHobby(hobby)"><mat-icon>cancel</mat-icon></button></mat-chip>                    
+                </mat-chip-list>
+                <br *ngIf="hobbiesArray!=[]">
+                <label style="color: #000;">
+                    <input type="checkbox" [(ngModel)] = "Subscribed">Subscribe to NewsLetter
+                </label>                
+        </div>
+        <div mat-dialog-actions>
+            <button mat-button (click)="closeDialogBox()" style="color: black;">Close</button>
+            <button mat-raised-button color="primary;" (click)="onSubmit('userProfile')">Submit</button>
+        </div>
+    </div>
+    

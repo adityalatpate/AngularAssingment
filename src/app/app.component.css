@@ -1,0 +1,10 @@
+.buttonBorderColor
+{
+    border-color: rgb(126, 190, 230);
+}
+.divBorder
+{
+    border: 1px solid #ccc;
+    border-width: 0.1cm;
+    border-color: blue;
+}

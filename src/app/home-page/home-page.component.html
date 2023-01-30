@@ -1,0 +1,86 @@
+<body style="background: url('../assets/Group-407.png'); background-size:cover; ">
+    <div style="padding-left: 10%; padding-top: 2.5%;">
+      <h2 style="float: left; background-color: white;">
+        <!-- <img src="../assets/images.jpg" alt="LaptopImage"> -->
+          demo app
+      </h2>
+          <mat-tab-group style="float: right;">
+              <mat-tab label="Home">
+              </mat-tab>
+              <mat-tab label="About Us">
+              </mat-tab>
+              <mat-tab label="Jobs">
+              </mat-tab>
+              <mat-tab label="Clients">
+              </mat-tab>
+              <mat-tab label="Employees">
+              </mat-tab>
+              <mat-tab label="Contact Us">
+              </mat-tab>
+          </mat-tab-group>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div style="padding-left:15%;">
+        <h3 style="color: white; font-size: 500%; font-style: italic; font-family: Bahnschrift SemiCondensed;">I'm looking for.. </h3>
+        <br> <br> <br>
+        <input style="width: 50%; height: 0.3in;" placeholder="Enter a Job Description"/>
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <button mat-raised-button color="warn"><mat-icon>search</mat-icon>Search</button>
+        <br>
+        <br>
+        <mat-checkbox style="color: white;" class="example-margin" [(ngModel)]="checked">Full Time</mat-checkbox>
+        &nbsp; &nbsp; &nbsp;
+        <mat-checkbox style="color: white;" class="example-margin" [(ngModel)]="indeterminate">Part Time / Casual / Freelance</mat-checkbox>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <select  name="searchLocation" id="location" style="height: 0.8cm; width: 4cm;">
+            <option value=""> Search your Location</option>
+            <option *ngFor="let country of countryName" value="country.value"> {{country.name}} </option>
+        </select>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div style="padding-left: 44%;">
+        <button mat-raised-button color="warn" (click)="openRegisterDialogueBox()">Register</button>
+    </div>
+    </body>
+    <div style="padding-top:5%; background-color:rgb(240, 238, 238); border-left: 0px; border-right: 0px;" class="divBorder">
+    <h4 style="padding-left: 45%;">We're leaders in</h4>
+    <h2 style="padding-left: 40%;">Creative Digital Recruitment</h2>
+    <h6 style="padding-left: 38%;">Based in Sury Hills, the creative hub of Sydney we are surrounded by creativity</h6>
+    <h6 style="padding-left: 41%;">and that reflects on the type of jobs we recruit for</h6>
+    <br>
+    <span style="padding-left: 42%;">
+        <button mat-stroked-button class="buttonBorderColor" style="width: 1.9in; height: 0.4in; color:  rgb(126, 190, 230);">Find Out More About Us!</button>
+    </span>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    </div>
+    <div style="background-color: black; border-top: 0px solid #ccc; border-left: 0px; border-right: 0px;" class="divBorder">
+    <p style="color: white;padding-top: 10%; padding-left: 40%;">Subscribe to our Job Seeker Mailing List</p>
+    <span style="padding-left: 41%;">
+        <button mat-stroked-button class="buttonBorderColor" style="width: 2.4in; height: 0.4in; color:  rgb(126, 190, 230);">Enter Your Email Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <mat-icon> email</mat-icon></button>
+    </span>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    </div>
+    <div style="color: rgb(240, 238, 238);">
+    <mat-icon style="color: rgb(126, 190, 230);"> email</mat-icon>
+    </div>

@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-tab-label { color: white;}
+.mat-dialog-container {background-color:white;}
+.mat-accent .mat-slider-track-fill,
+.mat-slider-track-background,
+.mat-slider:hover .mat-slider-track-background { background-color: gray; opacity: 1;}
+.mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {background-color: black; opacity: 1;}
+.mat-slider-thumb {
+    transform: scale(0.7);
+    background-color: black;
+    border: 1px solid black;
+  }

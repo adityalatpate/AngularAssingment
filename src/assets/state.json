@@ -1,0 +1,41 @@
+[
+    {
+        "India":
+        {
+            "stateName":
+            [
+                {
+                    "value":"MH",
+                    "name" : "Maharashtra"
+                },
+                {
+                    "value":"CH",
+                    "name":"Chennai"
+                },
+                {
+                    "value":"DEL",
+                    "name":"Delhi"
+                }
+            ]
+        },
+
+        "America":
+        {
+            "stateName":
+            [
+                {
+                    "value":"CHI",
+                    "name" :"Chicago"
+                },
+                {
+                    "value":"Tex",
+                    "name":"Texas"
+                },
+                {
+                    "value":"Fl",
+                    "name":"Florida"
+                }
+            ]
+        }
+    }
+]
